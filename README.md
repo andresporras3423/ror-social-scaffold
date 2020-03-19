@@ -1,6 +1,6 @@
-# Private Events project
+# Final Ruby On Rails project- milestone 1
 
-Eight Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
+Create a Entitiy-relation design for the final project. This is a Microverse Project made By Salvador Olvera &amp; Oscar Russi
 
 ![screenshot](./doc/ERD.png)
 

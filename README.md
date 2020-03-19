@@ -1,20 +1,16 @@
-# Private Events project
+#  Final project ruby on rails - milestone 5
 
-Eight Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
+Nine Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 
-![screenshot](./doc/ERD.png)
+![screenshot](./doc/screenshot.png)
 
 
 # What it does
 
-- entity-relation model image in the doc folder
-- 5 entities: user, friendship, post, like_post and comment
-- user has many posts, friendships, like/dislike posts and comments
-- friendship has the id of the user who create the friendship invitation and the id of the invited user
-- friendship has a status attribute. If pending then is an invitation, if accepted then is a friendship, if rejected no invitation not friendship
-- like_post save the user like (or dislike) to a post
-- post contains the id of the user who created, also the content of the post   
-- comment contains the id of the user and the id of the post
+- created model for friendship
+- friendship belongs to two users identified by user_id and friend_id 
+- user has many created invitations and many pending invitations received
+- add methods in user to get friends and pending invitations
 
 # How to run this project
 

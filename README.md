@@ -1,16 +1,16 @@
-#  Final project ruby on rails - milestone 5
+#  Final project ruby on rails - milestone 6
 
-Nine Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
+Tenth Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 
 ![screenshot](./doc/screenshot.png)
 
 
 # What it does
 
-- created model for friendship
-- friendship belongs to two users identified by user_id and friend_id 
-- user has many created invitations and many pending invitations received
-- add methods in user to get friends and pending invitations
+- The method save, in friendship model, creates two rows
+- using an after_save to create a second record after saving a friendship (using user_id and friend_id in inverse order)
+- uniqueness for combination user_id and friend_id
+
 
 # How to run this project
 
@@ -18,8 +18,7 @@ Nine Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 - Install ruby on rails
 - Install bundle
 - Run "bundle install" inside folder
-- Run "rails server" inside folder
-- Go to http://127.0.0.1:3000/
+- Run 'rspec' to test the changes on the model
 
 
 #### and deployed to GitHub

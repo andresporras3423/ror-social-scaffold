@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Like, type: :model do
   context 'test like model' do
     it 'create valid like' do
-      u1 = User.create(name: 'Oscar', email: 'q@q.com', password:'12345678', password_confirmation:'12345678')
+      u1 = User.create(name: 'Oscar', email: 'q@q.com', password: '12345678', password_confirmation: '12345678')
       u1.save
       p1 = Post.new(user_id: u1.id, content: 'abc')
       p1.save

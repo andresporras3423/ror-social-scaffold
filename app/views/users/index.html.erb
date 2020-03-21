@@ -6,10 +6,17 @@
         <span class="profile-link">
           <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
           <% if current_user.invitable(user) %>
-          <%= button_to 'send request',  "/send_request?id=#{user.id}", class: 'btn btn-secondary' %>
+          <div class="d-flex">
+            <%= user.name %> isn't yet your friend: 
+            <%= button_to 'invite',  "/send_request?id=#{user.id}", class: 'btn btn-secondary' %>
+          </div>
           <% end%>
           <% if current_user.users_who_invite_you.any?{|u| u.id == user.id} %>
-          <%= button_to 'accept request',  "/accept_request?id=#{user.id}", class: 'btn btn-secondary' %>
+          <div class="d-flex">
+            <br>This user wants to be your friend:
+            <%= button_to 'accept',  "/answer_request?id=#{user.id}&answer=1", class: 'btn btn-secondary' %>
+            <%= button_to 'reject',  "/answer_request?id=#{user.id}&answer=0", class: 'btn btn-secondary' %>
+          </div>
           <% end%>
         </span>
       </li>

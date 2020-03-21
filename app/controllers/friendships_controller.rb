@@ -7,8 +7,12 @@ class FriendshipsController < ApplicationController
 
   def edit
     f1 = current_user.inverse_friendships.find_by_user_id(params[:id])
-    f1.confirmed=true
-    f1.save
+    if params[:answer]=='1'
+      f1.confirmed=true
+      f1.save
+    elsif params[:answer]=='0'
+      Friendship.destroy(f1.id)
+    end
     redirect_to '/'
   end
 end

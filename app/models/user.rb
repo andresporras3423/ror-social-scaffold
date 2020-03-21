@@ -19,12 +19,12 @@ class User < ApplicationRecord
   end
 
   # Users who have yet to confirme friend requests
-  def pending_friends
+  def users_you_invited
     friendships.map { |f| f.friend unless f.confirmed }.compact
   end
 
   # Users who have requested to be friends
-  def friend_requests
+  def users_who_invite_you
     inverse_friendships.map { |f| f.user unless f.confirmed }.compact
   end
 
@@ -36,5 +36,11 @@ class User < ApplicationRecord
 
   def friend?(user)
     friends.include?(user)
+  end
+
+  def invitable(user)
+    return true unless id==user.id || Friendship.all.any?{|f| (f.user_id=id && f.friend_id=user.id) || (f.user_id=user.id && f.friend_id=id)}
+
+    return false
   end
 end

@@ -5,8 +5,11 @@
         Name: <%= user.name %>
         <span class="profile-link">
           <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-          <% if current_user.id!=user.id && !current_user.friends.any?{|u1| u1.id==user.id} && !current_user.pending_friends.any?{|u1| u1.id==user.id} %>
-          <%= button_to 'friend request',  "/friend_request?id=#{user.id}", class: 'btn btn-secondary' %>
+          <% if current_user.invitable(user) %>
+          <%= button_to 'send request',  "/send_request?id=#{user.id}", class: 'btn btn-secondary' %>
+          <% end%>
+          <% if current_user.users_who_invite_you.any?{|u| u.id == user.id} %>
+          <%= button_to 'accept request',  "/accept_request?id=#{user.id}", class: 'btn btn-secondary' %>
           <% end%>
         </span>
       </li>

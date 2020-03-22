@@ -2,7 +2,7 @@ class FriendshipsController < ApplicationController
   def create
     f1 = Friendship.create(user_id: current_user.id, friend_id: params[:id])
     f1.save
-    redirect_to '/'
+    redirect_to request.referrer
   end
 
   def edit
@@ -13,6 +13,6 @@ class FriendshipsController < ApplicationController
     elsif params[:answer]=='0'
       Friendship.destroy(f1.id)
     end
-    redirect_to '/'
+    redirect_to request.referrer
   end
 end

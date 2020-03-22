@@ -13,8 +13,10 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 
   def friends
-    friends_array = friendships.map { |f| f.friend if f.confirmed }
-    friends_array += inverse_friendships.map { |f| f.user if f.confirmed }
+    friends_array = []
+    friendships.each { |f| friends_array.push(f.friend) if f.confirmed }
+    inverse_friendships.each { |f| friends_array.push(f.user) if f.confirmed }
+    # friends_array += inverse_friendships.select { |f| f.confirmed }
     friends_array.compact
   end
 

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]
   end
-
+  post '/send_request', to: 'friendships#create'
+  post '/answer_request', to: 'friendships#edit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

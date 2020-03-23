@@ -41,13 +41,17 @@ class User < ApplicationRecord
   end
 
   def invitable(user)
-    return false if id==user.id || Friendship.all.any?{|f| (f.user_id==id && f.friend_id==user.id) || (f.user_id==user.id && f.friend_id==id)}
+    fr = Friendship.all
+    if id == user.id ||
+       fr.any? { |f| (f.user_id == id && f.friend_id == user.id) || (f.user_id == user.id && f.friend_id == id) }
+      return false
+    end
 
-    return true
+    true
   end
 
   def posts_mine_or_friends
-    p = Post.all.ordered_by_most_recent.select{|p| p if p.user_id == id || friends.any?{|f| f.id == p.user_id}}
-    p
+    post = Post.all.ordered_by_most_recent.select { |p| p if p.user_id == id || friends.any? { |f| f.id == p.user_id } }
+    post
   end
 end

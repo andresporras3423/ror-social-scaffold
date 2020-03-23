@@ -11,6 +11,10 @@ Nine Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 - friendship belongs to two users identified by user_id and friend_id 
 - user has many created invitations and many pending invitations received
 - add methods in user to get friends and pending invitations
+- the user can see and accept or reject invitations
+- the user can post, can comment and like post
+- the user can invite friends
+- in timeline the user can see his post and the posts of their friends
 
 # How to run this project
 

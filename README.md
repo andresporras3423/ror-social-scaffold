@@ -1,4 +1,4 @@
-#  Final project ruby on rails - milestone 5
+#  Final project ruby on rails - milestone 6
 
 Nine Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 
@@ -15,6 +15,7 @@ Nine Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 - the user can post, can comment and like post
 - the user can invite friends
 - in timeline the user can see his post and the posts of their friends
+- to create the frienship we use 2 rows in the database
 
 # How to run this project
 

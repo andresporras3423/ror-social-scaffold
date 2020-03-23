@@ -14,7 +14,7 @@ class Friendship < ApplicationRecord
   def destroy_friendship
     return if Friendship.where(user_id: friend_id, friend_id: user_id) == []
 
-    user_friendship1 = Friendship.find{|f| f.user_id == friend_id && f.friend_id == user_id}
+    user_friendship1 = Friendship.find { |f| f.user_id == friend_id && f.friend_id == user_id }
     Friendship.destroy(user_friendship1.id)
   end
 

@@ -12,7 +12,7 @@ RSpec.describe Friendship, type: :model do
     end
 
     it 'create invalid friendship' do
-      f1 = Friendship.new(user_id: 1, friend_id: 2, confirmed: true)
+      f1 = Friendship.new(user_id: 5, friend_id: 17, confirmed: true)
       expect(f1.valid?).to eq(false)
     end
   end

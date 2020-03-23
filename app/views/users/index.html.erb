@@ -8,7 +8,7 @@
           <% if current_user.invitable(user) %>
           <div class="d-flex">
             <%= user.name %> isn't yet your friend: 
-            <%= button_to 'invite',  "/send_request?id=#{user.id}", class: 'btn btn-secondary' %>
+            <%= button_to 'invite',  "/send_request?id=#{user.id}", class: 'btn btn-secondary', id:"invite#{user.id}"  %>
           </div>
           <% end%>
           <% if current_user.users_who_invite_you.any?{|u| u.id == user.id} %>

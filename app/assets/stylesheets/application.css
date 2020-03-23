@@ -28,4 +28,8 @@
   flex:2;
 }
 
+.flex-r-reverse{
+  flex-direction: row-reverse;
+  }
+  
 

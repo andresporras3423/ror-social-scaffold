@@ -15,26 +15,29 @@ class User < ApplicationRecord
   def friends
     friends_array = []
     friendships.each { |f| friends_array.push(f.friend) if f.confirmed }
-    inverse_friendships.each { |f| friends_array.push(f.user) if f.confirmed }
-    # friends_array += inverse_friendships.select { |f| f.confirmed }
-    friends_array.compact
+    friends_array
   end
 
   # Users who have yet to confirme friend requests
   def users_you_invited
-    friendships.map { |f| f.friend unless f.confirmed }.compact
+    users=[]
+    friendships.select {|f| users.push(f.friend) if f.confirmed==nil && inverse_friendships.none?{|f2| f.friend_id==f2.user_id && f.user_id==f2.friend_id && f.id>f2.id}}
+    users
   end
 
   # Users who have requested to be friends
   def users_who_invite_you
-    inverse_friendships.map { |f| f.user unless f.confirmed }.compact
+    users=[]
+    friendships.each {|f| users.push(f.friend) if f.confirmed==nil && inverse_friendships.none?{|f2| f.friend_id==f2.user_id && f.user_id==f2.friend_id && f.id<f2.id}}
+    users
   end
 
-  def confirm_friend(user)
-    friendship = inverse_friendships.find { |f| f.user == user }
-    friendship.confirmed = true
-    friendship.save
-  end
+  # def confirm_friend(user)
+  #   friendship = inverse_friendships.find { |f| f.user == user }
+  #   friendship.confirmed = true
+  #   friendship = friendships.find { |f| f.user == user }
+  #   friendship.save
+  # end
 
   def friend?(user)
     friends.include?(user)

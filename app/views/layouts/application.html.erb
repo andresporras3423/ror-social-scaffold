@@ -8,9 +8,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="nav">
-      <%= link_to 'Stay in touch', root_path %>
-      <div class="menu">
+    <nav class="nav d-flex">
+      <div class="menu flex-7">
+      <div class="menu-item">
+      <%= link_to  'Stay in touch', root_path%>
+      </div>
         <div class="menu-item">
           <%= menu_link_to 'Timeline', posts_path %>
         </div>
@@ -18,11 +20,14 @@
           <%= menu_link_to 'All users', users_path %>
         </div>
       </div>
+      <div class="flex-2 d-flex">
       <% if current_user %>
+      <span>Welcome <%= current_user.name%></span>
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Sign in', user_session_path %>
       <% end %>
+      </div>
     </nav>
     <% if notice.present? %>
       <div class="notice">

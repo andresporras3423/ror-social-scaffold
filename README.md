@@ -4,6 +4,9 @@ Tenth Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 
 ![screenshot](./doc/screenshot.png)
 
+# live demo
+
+[Live Demo](https://fierce-beach-59030.herokuapp.com/)
 
 # What it does
 
@@ -15,6 +18,7 @@ Tenth Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 - the user can post, can comment and like post
 - the user can invite friends
 - in timeline the user can see his post and the posts of their friends
+- deploy with heroku (live demo)
 
 # How to run this project
 

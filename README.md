@@ -1,6 +1,6 @@
-#  Final project ruby on rails - milestone 5
+#  Final project ruby on rails - milestone 8
 
-Nine Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
+Tenth Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 
 ![screenshot](./doc/screenshot.png)
 

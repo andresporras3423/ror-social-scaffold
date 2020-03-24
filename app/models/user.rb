@@ -20,15 +20,27 @@ class User < ApplicationRecord
 
   # Users who have yet to confirme friend requests
   def users_you_invited
-    users=[]
-    friendships.select {|f| users.push(f.friend) if f.confirmed==nil && inverse_friendships.none?{|f2| f.friend_id==f2.user_id && f.user_id==f2.friend_id && f.id>f2.id}}
+    users = []
+    friendships.select do |f|
+      next unless f.confirmed.nil? && inverse_friendships.none? do |f2|
+        f.friend_id == f2.user_id && f.user_id == f2.friend_id && f.id > f2.id
+      end
+
+      users.push(f.friend)
+    end
     users
   end
 
   # Users who have requested to be friends
   def users_who_invite_you
-    users=[]
-    friendships.each {|f| users.push(f.friend) if f.confirmed==nil && inverse_friendships.none?{|f2| f.friend_id==f2.user_id && f.user_id==f2.friend_id && f.id<f2.id}}
+    users = []
+    friendships.each do |f|
+      next unless f.confirmed.nil? && inverse_friendships.none? do |f2|
+        f.friend_id == f2.user_id && f.user_id == f2.friend_id && f.id < f2.id
+      end
+
+      users.push(f.friend)
+    end
     users
   end
 

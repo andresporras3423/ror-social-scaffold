@@ -8,6 +8,14 @@
       <%= like_or_dislike_btn(post) %>
     </div>
   </div>
+  <div class="d-flex">
+  <div>
+    likes: <%= post.likes.length %>
+    </div>
+    <div>
+    comments: <%= post.comments.length %>
+    </div>
+  </div>
   <p class="post-content">
     <%= post.content %>
   </p>

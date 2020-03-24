@@ -1,4 +1,4 @@
-#  Final project ruby on rails - milestone 8
+#  Final project ruby on rails - heroku deplay
 
 Tenth Ruby on Rails Microverse Project By Salvador Olvera &amp; Oscar Russi
 
